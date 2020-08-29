@@ -1,13 +1,40 @@
-<!-- <div *ngFor="let post of posts | async">
-	<h2 routerLink="{{post.id}}">{{post.title}}</h2>
-	<p>{{post.content}}</p>
-	<p>{{post.id}}</p>
-</div>
- -->
-<section>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      DAY TRADE BASICS
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+	 <mat-nav-list *ngFor="let post of posts | async" style="padding: 2px">
+	 	<ng-container *ngIf="post.category==='daytradebasics'">
+	 		<a mat-list-item routerLink="{{post.id}}" >
+		   	<img *ngIf="post.image"src="{{post.image}}" alt="{{post.title}}">
+			<h4>{{post.title}}</h4>
+			<!-- <p><small>   Posted by {{post.author}} &bull; on {{post.published.toDate() | date:"fullDate"}}</small></p> -->
+		   </a>
+	 	</ng-container> 
+	</mat-nav-list>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      OTHER THOUGHTS
+    </mat-panel-title>
+</mat-expansion-panel-header>
+  <mat-nav-list *ngFor="let post of posts | async" style="padding: 2px">
+ 	<ng-container *ngIf="post.category==='other'">
+ 		<a mat-list-item routerLink="{{post.id}}" >
+	   	<img *ngIf="post.image"src="{{post.image}}" alt="{{post.title}}">
+		<h4>{{post.title}}</h4>
+		<!-- <p><small>   Posted by {{post.author}} &bull; on {{post.published.toDate() | date:"fullDate"}}</small></p> -->
+	   </a>
+ 	</ng-container>   
+  </mat-nav-list>
+</mat-expansion-panel>
+<!-- <section>
 	<mat-card *ngFor="let post of posts | async">
 		<mat-card-content routerLink = "{{post.id}}">
-			<img src="{{post.image}}" alt="{{post.title}}">
+			<img *ngIf="post.image"src="{{post.image}}" alt="{{post.title}}">
 			<h2>{{post.title}}</h2>
 			<p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date:"fullDate"}}</small></p>
 		</mat-card-content>
@@ -18,4 +45,4 @@
 			
 		</mat-card-actions>
 	</mat-card>
-</section>
+</section> -->

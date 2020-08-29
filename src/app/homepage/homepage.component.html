@@ -1,0 +1,39 @@
+
+<owl-carousel-o [options]="customOptions" >
+    <ng-template carouselSlide >
+    	<img src="../../assets/quote1.jpg">
+    </ng-template>  
+    <ng-template carouselSlide >
+    	<img src="../../assets/quote2.jpg">
+    </ng-template>  
+    <ng-template carouselSlide >
+    	<img src="../../assets/quote3.jpg">
+    </ng-template> 
+ </owl-carousel-o>
+<mat-grid-list cols="1"  rowHeight = "20%" gutterSize="1%">
+	<mat-grid-tile rowspan="3">
+   		<div class = "subscribe" style="width:100%">  		  
+   		  <h2><mat-icon>golf_course</mat-icon> Stay Connected</h2>
+	      
+	      <mat-form-field class="full-width-input" style="width:100%">
+	        <input matInput type="text"placeholder="Name" [(ngModel)]="name">
+	      </mat-form-field><br>
+	      <mat-form-field class="full-width-input" style="width:100%">
+	        <input matInput type="email" placeholder="Email" [(ngModel)]="email">
+	        <mat-error>
+	          Please provide a valid Email
+	        </mat-error>
+	      </mat-form-field><br><br>
+	      <button mat-raised-button color="primary" style="left:0vw"(click)="createRecord()" [disabled]="!name ||!email"><mat-icon>add_alert</mat-icon> {{buttonText}}</button>
+	    </div>  
+  </mat-grid-tile>
+  <mat-grid-tile
+      >
+  </mat-grid-tile>
+</mat-grid-list>
+
+ <div class = "footer">
+<!--  	<mat-icon>share</mat-icon><br><br> -->
+ 	<h3 style="color:gray">@2020 by HappyTrade</h3>
+ </div>	
+ 

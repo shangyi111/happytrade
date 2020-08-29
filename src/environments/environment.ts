@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-	  apiKey: "AIzaSyD3w4Pog3UZBp0aH5AYpjBUmIOuqUXPmeg",
-	  authDomain: "angularblogproject-b3c61.firebaseapp.com",
-	  databaseURL: "https://angularblogproject-b3c61.firebaseio.com",
-	  projectId: "angularblogproject-b3c61",
-	  storageBucket: "angularblogproject-b3c61.appspot.com",
-	  messagingSenderId: "458830448914",
-	  appId: "1:458830448914:web:ade67934b56d64be860bcb",
-	  measurementId: "G-MEMFXXL3XR"
+	  apiKey: "AIzaSyBfWxyTcssDd_ieC-ZSiZiIJcMnEmuwJn4",
+	  authDomain: "happytrade-1582e.firebaseapp.com",
+	  databaseURL: "https://happytrade-1582e.firebaseio.com",
+	  projectId: "happytrade-1582e",
+	  storageBucket: "happytrade-1582e.appspot.com",
+	  messagingSenderId: "874067670421",
+	  appId: "1:874067670421:web:53698a9a0ddc5ddc73329c",
+	  measurementId: "G-KR94TT1WVT"
   }
 };
 

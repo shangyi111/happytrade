@@ -1,13 +1,31 @@
+
 <mat-toolbar color="primary">
  <mat-toolbar-row>
- 	<span routerLink = "/blog">Joy's Blog</span>
+ 	<span routerLink = "/home"> H <mat-icon style="font-size:20px">sentiment_very_satisfied</mat-icon>ppy Tr <mat-icon style="font-size:20px">sentiment_very_satisfied</mat-icon>ding</span>
+ 	<br>
+ 	<div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+        <button mat-button routerLink="/blog"> 
+        <mat-icon>free_breakfast</mat-icon>    Blog</button>
+
+        <button mat-button routerLink="/game">
+        	<mat-icon>pool</mat-icon>
+        	 DummyMockTrade
+        </button>
+    </div>
+   
  	<span class = "spacer"></span>
  	<div *ngIf = "auth.afAuth.authState | async as user; else showLogin">
- 		<button mat-raised-button color="accent" routerLink="/dashboard">Write a Post</button>
- 		<button mat-button (click)="auth.logout()">Logout</button>
+ 		<button *ngIf="user.uid==='5gJ2g3clgaMgSDZ3GoSrLUSqQPs2'" mat-raised-button color="accent" routerLink="/dashboard">
+ 		<mat-icon>note_add</mat-icon> Write a Post</button>
+ 		
+ 		<button mat-button (click)="auth.logout()">
+ 		<mat-icon> directions_run</mat-icon> Logout</button>
  	</div>
  	<ng-template #showLogin>
- 		<button mat-button (click)="auth.login()">Login with Google</button>
+ 		<button mat-button (click)="auth.login()"><mat-icon>perm_identity</mat-icon>Login with Google</button>
  	</ng-template>
  </mat-toolbar-row>
 </mat-toolbar>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,29 @@
+mat-grid-list{
+	margin:0vh auto;
+}
+
+.welcome{
+	height: 5vh;
+}
+
+.example-card {
+	margin:2vw auto;
+  max-width: 800px;
+  max-height: 100%;
+}
+
+.subscribe {
+  left:50%;
+  max-width: 700px;
+  padding: 5vw;
+  align-self: center;
+}
+
+.footer{
+  display: block;
+	text-align: right;
+  height: 10vh;
+	padding: 2vh;
+  background-color: #fbe9e7;
+}
+

@@ -1,0 +1,19 @@
+.intro{
+	padding: 2vw;
+	margin:5%;
+	justify-content: center;
+	display: block;
+	max-width: 1000px;	
+}
+.menu{
+	padding: 2vw;
+	margin:2vw;
+	justify-content: center;
+	display: flex;
+}
+
+.graph{
+	padding: 2vw;
+	justify-content: center;
+	display: flex;
+}

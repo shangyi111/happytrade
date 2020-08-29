@@ -15,7 +15,7 @@ export class AuthService {
   	return this.authState !==null
   }
   get currentUserId():string{
-  	return this.authenticated? this.authState.uid:null;
+  	return this.authenticated ? this.authState.uid : null;
   }
 
   login(){

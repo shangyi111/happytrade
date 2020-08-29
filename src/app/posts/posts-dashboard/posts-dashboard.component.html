@@ -28,6 +28,12 @@
 				<textarea matInput placeholder="Post Title" [(ngModel)]="content" rows="10"></textarea>
 			</mat-form-field>
 			<br>
+			<small>Please Category</small>
+			<br>
+			<mat-checkbox [(ngModel)]="checked">Day Trade Basics</mat-checkbox>
+			<br>
+      		<mat-checkbox [(ngModel)]="indeterminate">Other</mat-checkbox>
+      		<br>
 			<button mat-raised-button color="accent" (click)="createPost()" [disabled]="!title ||!content">{{buttonText}}</button>
 		</mat-expansion-panel>
 	</mat-accordion>

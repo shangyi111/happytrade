@@ -12,9 +12,13 @@ import { AngularFireStorage } from'@angular/fire/storage';
   styleUrls: ['./posts-dashboard.component.css']
 })
 export class PostsDashboardComponent implements OnInit {
+  checked = false;
+  indeterminate = false;
+
   title: string
   image:string = null
   content:string
+  category: string
 
   buttonText:string = "Create Post"
 
@@ -36,7 +40,8 @@ export class PostsDashboardComponent implements OnInit {
   		content: this.content,
   		image: this.image,
   		published: new Date(),
-  		title: this.title
+  		title: this.title,
+      category: this.checked===true? "daytradebasics" : "other"
   	}
   	this.postService.create(data)
     this.title =""
