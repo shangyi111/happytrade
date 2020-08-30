@@ -18,11 +18,12 @@
 <div [hidden]="editing">
 	<mat-card >
 	<img *ngIf="post.image"src="{{post.image}}" alt="{{post.title}}">
-	<p>Posted by {{post.author}} &bull; {{post.published}}</p>
+	<p>Posted by {{post.author}} &bull; {{post.published|date:"fullDate"}}</p>
 	<!-- .toDate() | date:"fullDate" -->
 	<mat-card-content>
 		<h2>{{post.title}}</h2>
-		<p>{{post.content}}</p>
+		<div id="postContent" ></div>
+		<div *ngIf="updateContent()"> </div>
 	</mat-card-content>
 	<mat-card-actions align="end" *ngIf="auth.currentUserId===post.authorId">
 		<button mat-icon-button (click)="editing=true">
