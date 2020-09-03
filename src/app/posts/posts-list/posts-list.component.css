@@ -21,3 +21,10 @@ mat-card-content:focus{
 	outline:none;
 	border:0;
 }
+
+mat-expansion-panel-header{
+	padding: 1vw;
+	margin: 1vw;
+	justify-content: bottom;
+	line-height: 10vw;
+}

@@ -1,7 +1,9 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      DAY TRADE BASICS
+      <p>
+  		<span matBadge="4" matBadgeOverlap="false">DAY TRADE BASICS</span>
+	  </p>
     </mat-panel-title>
   </mat-expansion-panel-header>
 	 <mat-nav-list *ngFor="let post of posts | async" style="padding: 2px">
@@ -18,7 +20,10 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      OTHER THOUGHTS
+      
+      <p>
+  		<span matBadge="2" matBadgeOverlap="false">OTHER THOUGHTS</span>
+	  </p>
     </mat-panel-title>
 </mat-expansion-panel-header>
   <mat-nav-list *ngFor="let post of posts | async" style="padding: 2px">

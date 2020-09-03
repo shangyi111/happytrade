@@ -10,6 +10,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   imports: [
@@ -23,7 +30,14 @@ import {MatListModule} from '@angular/material/list';
     MatGridListModule,
     MatCheckboxModule,
     MatAutocompleteModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatSnackBarModule,
+    MatSidenavModule
   ],
   exports:[
   	MatButtonModule,
@@ -36,7 +50,14 @@ import {MatListModule} from '@angular/material/list';
     MatGridListModule,
     MatCheckboxModule,
     MatAutocompleteModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatSnackBarModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }
