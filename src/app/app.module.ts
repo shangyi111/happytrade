@@ -20,9 +20,11 @@ import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module';
 import { SubscribeModule } from './homepage/subscribe.module';
 import { TradegameComponent } from './tradegame/tradegame.component';
-import { RoomlistComponent } from './roomlist/roomlist.component';
-import { AddroomComponent } from './addroom/addroom.component';
-import { ChatroomComponent } from './chatroom/chatroom.component';
+import { RoomlistComponent } from './chat/roomlist/roomlist.component';
+import { AddroomComponent } from './chat/addroom/addroom.component';
+import { ChatroomComponent } from './chat/chatroom/chatroom.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 const routes:Routes =[
   { path:'home',loadChildren:'./homepage/subscribe.module#SubscribeModule'},
@@ -57,6 +59,7 @@ const routes:Routes =[
     SharedModule,
     PostsModule,
     SubscribeModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth

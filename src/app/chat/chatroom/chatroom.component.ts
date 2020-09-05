@@ -4,7 +4,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { ErrorStateMatcher } from '@angular/material/core';
 import * as firebase from 'firebase';
 import { DatePipe } from '@angular/common';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -48,7 +48,7 @@ export class ChatroomComponent implements OnInit {
               public auth:AuthService) {
                 this.nickname = this.auth.authState.displayName || this.auth.authState.email ;
                 this.roomname = this.route.snapshot.params.roomname;
-                firebase.database().ref('chats/').on('value', resp => {
+                firebase.database().ref(`chats/${this.roomname}`).on('value', resp => {
                   this.chats = [];
                   this.chats = snapshotToArray(resp);
                   this.chats = this.chats.splice(0,50);
@@ -70,7 +70,7 @@ export class ChatroomComponent implements OnInit {
     chat.nickname = this.nickname;
     chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
     chat.type = 'message';
-    const newMessage = firebase.database().ref('chats/').push();
+    const newMessage = firebase.database().ref(`chats/${chat.roomname}`).push();
     newMessage.set(chat);
     this.chatForm = this.formBuilder.group({
       'message' : [null, Validators.required]
@@ -81,10 +81,10 @@ export class ChatroomComponent implements OnInit {
     chat.roomname = this.roomname;
     chat.nickname = this.nickname;
     chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
-    chat.message = `${this.nickname} leave the room`;
-    chat.type = 'exit';
-    const newMessage = firebase.database().ref('chats/').push();
-    newMessage.set(chat);
+    // chat.message = `${this.nickname} leave the room`;
+    // chat.type = 'exit';
+    // const newMessage = firebase.database().ref(`chats/${chat.roomname}`).push();
+    // newMessage.set(chat);
 
     firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp: any) => {
       let roomuser = [];
@@ -98,7 +98,7 @@ export class ChatroomComponent implements OnInit {
       this.chats = snapshotToArray(resp);
       setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
     });
-
+    this.roomname="";
     this.router.navigate(['/roomlist']);
   }
 

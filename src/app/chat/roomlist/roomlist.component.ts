@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatePipe } from '@angular/common';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 
 
 export const snapshotToArray = (snapshot: any) => {
@@ -49,10 +49,10 @@ export class RoomlistComponent implements OnInit {
     chat.roomname = roomname;
     chat.nickname = this.nickname;
     chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
-    chat.message = `${this.nickname} enter the room`;
-    chat.type = 'join';
-    const newMessage = firebase.database().ref('chats/').push();
-    newMessage.set(chat);
+    // chat.message = `${this.nickname} enter the room`;
+    // chat.type = 'join';
+    // const newMessage = firebase.database().ref(`chats/${chat.roomname}`).push();
+    // newMessage.set(chat);
 
     firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(roomname).on('value', (resp: any) => {
       let roomuser = [];
