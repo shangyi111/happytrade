@@ -48,6 +48,7 @@ export class ChatroomComponent implements OnInit {
               public auth:AuthService) {
                 this.nickname = this.auth.authState.displayName || this.auth.authState.email ;
                 this.roomname = this.route.snapshot.params.roomname;
+                console.log(`chat roomname: ${this.roomname}`);
                 firebase.database().ref(`chats/${this.roomname}`).on('value', resp => {
                   this.chats = [];
                   this.chats = snapshotToArray(resp);
@@ -85,8 +86,9 @@ export class ChatroomComponent implements OnInit {
     // chat.type = 'exit';
     // const newMessage = firebase.database().ref(`chats/${chat.roomname}`).push();
     // newMessage.set(chat);
-
+    let ec = true;
     firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(this.roomname).on('value', (resp: any) => {
+      if (!ec ) return;
       let roomuser = [];
       roomuser = snapshotToArray(resp);
       const user = roomuser.find(x => x.nickname === this.nickname);
@@ -97,6 +99,7 @@ export class ChatroomComponent implements OnInit {
       this.chats = [];
       this.chats = snapshotToArray(resp);
       setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+      ec = false
     });
     this.roomname="";
     this.router.navigate(['/roomlist']);

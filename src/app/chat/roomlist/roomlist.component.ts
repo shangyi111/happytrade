@@ -53,14 +53,18 @@ export class RoomlistComponent implements OnInit {
     // chat.type = 'join';
     // const newMessage = firebase.database().ref(`chats/${chat.roomname}`).push();
     // newMessage.set(chat);
-
+    let ecr = true;
+    console.log(`roomname: ${roomname}`);
     firebase.database().ref('roomusers/').orderByChild('roomname').equalTo(roomname).on('value', (resp: any) => {
+      if (!ecr ) return;
       let roomuser = [];
       roomuser = snapshotToArray(resp);
       const user = roomuser.find(x => x.nickname === this.nickname);
       if (user !== undefined) {
-        const userRef = firebase.database().ref('roomusers/' + user.key);
-        userRef.update({status: 'online'});
+        if (user.status !== 'online') {
+          const userRef = firebase.database().ref('roomusers/' + user.key);
+          userRef.update({status: 'online'});
+        }
       } else {
         const newroomuser = { roomname: '', nickname: '', status: '' };
         newroomuser.roomname = roomname;
@@ -69,6 +73,7 @@ export class RoomlistComponent implements OnInit {
         const newRoomUser = firebase.database().ref('roomusers/').push();
         newRoomUser.set(newroomuser);
       }
+      ecr = false;
     });
 
     this.router.navigate(['/chatroom', roomname]);
