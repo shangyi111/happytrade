@@ -33,12 +33,24 @@ export class RoomlistComponent implements OnInit {
   			  private router: Router, 
   			  public datepipe: DatePipe,
   			  public auth:AuthService) {
-    this.nickname = this.auth.authState.displayName || this.auth.authState.email,
-    firebase.database().ref('rooms/').on('value', resp => {
-      this.rooms = [];
-      this.rooms = snapshotToArray(resp);
-      this.isLoadingResults = false;
-    });
+
+    
+      if (firebase.auth().currentUser) {
+      // User is signed in.
+        this.nickname = this.auth.authState.displayName || this.auth.authState.email,
+        firebase.database().ref('rooms/').on('value', resp => {
+        this.rooms = [];
+        this.rooms = snapshotToArray(resp);
+        this.isLoadingResults = false;
+      });
+      } else {
+      // No user is signed in.
+      alert("Please log in");
+      this.router.navigate(['/home']);
+      
+      
+      };
+    
   }
 
   ngOnInit(): void {
