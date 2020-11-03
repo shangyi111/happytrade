@@ -26,5 +26,10 @@ mat-expansion-panel-header{
 	padding: 1vw;
 	margin: 1vw;
 	justify-content: bottom;
-	line-height: 10vw;
+	line-height: 15vw;
+}
+mat-panel-title{
+	margin:auto;
+	line-height: 15vw;
+	position:relative;
 }

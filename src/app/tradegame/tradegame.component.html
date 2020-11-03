@@ -22,7 +22,7 @@
     </div>
 	<div style="display: inline-flex;">
 		<span style="margin: 3vw;max-width: 5vw" class="mat-display-5">Beginning Balance: $1,000</span>
-    <span style="margin: 3vw;max-width: 5vw;color:{{isGreen()}}" class="mat-display-5">Current Balance: ${{updatedBalance}}</span>
+    <span style="margin: 3vw;max-width: 5vw;color:{{isGreen()}}" class="mat-display-5">Current Balance: ${{updatedBalance | number : '1.2-2'}}</span>
     <span style="margin: 3vw;max-width: 4vw" class="mat-display-5">Current Price: ${{currentPrice}}</span>
     <span style="margin: 3vw;max-width: 5vw" class="mat-display-5">Buy-in Price: ${{buyPrice}}</span>
 	</div>
